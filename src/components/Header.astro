@@ -1,0 +1,49 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import LanguageSelect from '@astrojs/starlight/components/LanguageSelect.astro';
+import Search from '@astrojs/starlight/components/Search.astro';
+import SiteTitle from './SiteTitle.astro';
+import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+---
+
+<div class="header sl-flex">
+	<div class="sl-flex">
+		<SiteTitle {...Astro.props} />
+	</div>
+	<div class="sl-flex search-wrapper">
+		<Search {...Astro.props} />
+	</div>
+	<div class="sl-hidden md:sl-flex right-group">
+		<div class="sl-flex social-icons">
+			<SocialIcons {...Astro.props} />
+		</div>
+		<ThemeSelect {...Astro.props} />
+		<LanguageSelect {...Astro.props} />
+	</div>
+</div>
+
+<style>
+	.header {
+		gap: var(--sl-nav-gap);
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+	}
+
+	.search-wrapper {
+		flex: 1;
+		max-width: 350px;
+	}
+
+	.right-group {
+		gap: 1rem;
+		align-items: center;
+	}
+
+	.social-icons {
+		gap: 1rem;
+		align-items: center;
+	}
+</style>
+

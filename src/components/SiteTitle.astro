@@ -1,0 +1,62 @@
+---
+import { logos } from 'virtual:starlight/user-images';
+import config from 'virtual:starlight/user-config';
+
+const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
+---
+
+<a href={siteTitleHref} class="site-title">
+	{config.logo && logos.dark && (
+		<>
+			<img
+				class:list={{ 'light:sl-hidden': !('src' in config.logo) }}
+				alt={config.logo.alt}
+				src={logos.dark.src}
+				width={logos.dark.width}
+				height={logos.dark.height}
+			/>
+			{!('src' in config.logo) && (
+				<img
+					class="dark:sl-hidden"
+					alt={config.logo.alt}
+					src={logos.light?.src}
+					width={logos.light?.width}
+					height={logos.light?.height}
+				/>
+			)}
+		</>
+	)}
+	<span class="title-text">{siteTitle}</span>
+</a>
+
+<style>
+	.site-title {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		text-decoration: none;
+	}
+
+	img {
+		height: 2rem;
+		width: auto;
+	}
+
+	.title-text {
+		white-space: nowrap;
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #111827;
+	}
+
+	:global(.dark) .title-text {
+		color: #f3f4f6;
+	}
+
+	@media (max-width: 50rem) {
+		img {
+			height: 2rem;
+		}
+	}
+</style>
+

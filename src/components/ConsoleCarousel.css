@@ -1,0 +1,211 @@
+.console-carousel {
+  width: 100%;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.carousel-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  min-height: 80px;
+}
+
+.carousel-header h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--sl-color-white);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.carousel-header p {
+  font-size: 1rem;
+  color: var(--sl-color-gray-2);
+  margin: 0;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.console-window {
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+
+.console-header {
+  background: #2d2d2d;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #3d3d3d;
+  min-height: 36px;
+}
+
+.console-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.console-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+  margin: 0 !important;
+  padding: 0;
+  line-height: 0;
+}
+
+.console-button.close {
+  background: #ff5f56;
+}
+
+.console-button.minimize {
+  background: #ffbd2e;
+}
+
+.console-button.maximize {
+  background: #27c93f;
+}
+
+.console-title {
+  color: #8b8b8b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.console-body {
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.console-content {
+  margin: 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #d4d4d4;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.console-line {
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.console-line:has(+ .console-line:empty) {
+  margin-bottom: 0;
+}
+
+.console-prompt {
+  color: #4ec9b0;
+  margin-right: 0.5rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+.carousel-controls {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.carousel-button {
+  background: var(--sl-color-accent);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.carousel-button:hover {
+  background: var(--sl-color-accent-high);
+}
+
+.carousel-button:active {
+  transform: scale(0.95);
+}
+
+.carousel-dots {
+  display: inline-block;
+  margin: 0 1.5rem;
+  vertical-align: middle;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--sl-color-gray-5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 0.25rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.carousel-dot:hover {
+  background: var(--sl-color-gray-3);
+}
+
+.carousel-dot.active {
+  background: var(--sl-color-accent);
+}
+
+@media (max-width: 768px) {
+  .console-carousel {
+    margin: 2rem auto;
+  }
+
+  .carousel-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .console-body {
+    padding: 1rem;
+    min-height: 240px;
+  }
+
+  .console-content {
+    font-size: 0.85rem;
+  }
+
+  .carousel-button {
+    width: 36px;
+    height: 36px;
+    font-size: 1.25rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

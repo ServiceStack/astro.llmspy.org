@@ -1,0 +1,70 @@
+---
+title: llms.py
+description: Lightweight OpenAI compatible CLI and server gateway for multiple LLMs
+template: splash
+hero:
+  tagline: Support for Text, Image and Audio generation. Seamlessly mix and match local models with premium cloud LLMs
+  actions:
+    - text: Get Started
+      link: /getting-started/installation/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/ServiceStack/llms
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import ConsoleCarousel from '../../components/ConsoleCarousel.tsx';
+import { carouselSlides } from '../../data/carouselSlides';
+
+<ConsoleCarousel slides={carouselSlides} client:load />
+
+## OpenRouter but Local 🎯
+
+**llms.py** is designed as a **unified gateway** that seamlessly connects you to multiple LLM providers
+through a single, consistent interface. Whether using cloud APIs or local models, `llms` provides
+intelligent routing and automatic failover to ensure your AI workflows connect to your chosen providers in your
+preferred priority - whether optimizing for cost, performance or availability.
+
+## Key Features
+
+<CardGrid stagger>
+  <Card title="Ultra-Lightweight" icon="rocket">
+    Single file with just one dependency (`aiohttp`). No setup required - just download and use.
+  </Card>
+  <Card title="Multi-Provider Gateway" icon="puzzle">
+    Route requests across 160+ models from OpenAI, Anthropic, Google, Grok, Groq, Ollama and more.
+  </Card>
+  <Card title="Intelligent Routing" icon="random">
+    Automatic failover and cost optimization. Define free/cheap/local providers first to minimize costs.
+  </Card>
+  <Card title="Multi-Modal Support" icon="star">
+    Text, vision, audio processing and file attachments through vision and audio-capable models.
+  </Card>
+  <Card title="ChatGPT-like UI" icon="laptop">
+    Simple, fast, offline UI with dark mode, analytics, and all data stored locally in your browser.
+  </Card>
+  <Card title="OpenAI Compatible" icon="approve-check">
+    Works with any OpenAI-compatible client or framework. Drop-in replacement for OpenAI API.
+  </Card>
+</CardGrid>
+
+## Why llms.py?
+
+1. **Simplicity**: One file, one dependency, infinite possibilities
+2. **Flexibility**: Works with any OpenAI-compatible client or framework
+3. **Reliability**: Automatic failover ensures your workflows never break
+4. **Economy**: Intelligent routing minimizes API costs
+5. **Privacy**: Mix local and cloud models based on your data sensitivity
+6. **Future-Proof**: Easily add new providers as they emerge
+
+**llms.py** transforms the complexity of managing multiple LLM providers into a simple, unified experience.
+Whether you're researching capabilities of new models, building the next breakthrough AI application or just want
+reliable access to the best models available, llms.py has you covered.
+
+## Links
+
+- [GitHub Repository](https://github.com/ServiceStack/llms)
+- [PyPI Package](https://pypi.org/project/llms-py/)

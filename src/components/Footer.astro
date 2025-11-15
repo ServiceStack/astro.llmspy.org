@@ -1,0 +1,54 @@
+---
+// Custom footer component for Starlight
+---
+
+<footer>
+	<div class="custom-footer">
+		<p>
+			made with <span class="heart">❤</span> by <a href="https://servicestack.net" target="_blank" rel="noopener noreferrer">ServiceStack</a>
+		</p>
+	</div>
+</footer>
+
+<style>
+	.custom-footer {
+		text-align: center;
+		padding: 6rem 0 0 0;
+		margin: 0;
+	}
+
+	.custom-footer p {
+		margin: 0;
+		color: var(--sl-color-gray-3);
+		font-size: 0.9rem;
+	}
+
+	.custom-footer a {
+		color: var(--sl-color-text-accent);
+		text-decoration: none;
+		font-weight: 500;
+	}
+
+	.custom-footer a:hover {
+		text-decoration: underline;
+	}
+
+	.heart {
+		color: #e25555;
+		display: inline-block;
+		animation: heartbeat 1.5s ease-in-out infinite;
+	}
+
+	@keyframes heartbeat {
+		0%, 100% {
+			transform: scale(1);
+		}
+		10%, 30% {
+			transform: scale(1.1);
+		}
+		20%, 40% {
+			transform: scale(1);
+		}
+	}
+</style>
+
