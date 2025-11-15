@@ -20,15 +20,9 @@ export default defineConfig({
 			customCss: [
 				'./src/styles/custom.css',
 			],
-			head: [
-				{
-					tag: 'script',
-					attrs: {
-						src: '/force-light-mode.js',
-					},
-				},
-			],
 			components: {
+				Head: './src/components/ForceTheme.astro',
+				ThemeProvider: './src/components/ThemeProvider.astro',
 				Header: './src/components/Header.astro',
 				Footer: './src/components/Footer.astro',
 			},

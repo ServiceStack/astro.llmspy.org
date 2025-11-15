@@ -1,29 +1,47 @@
 /* Custom styles for llms.py documentation */
 
 /* ============================================
-   Force Light Mode
+   Force Light Mode - Override ALL dark mode styles
    ============================================ */
 
-/* Force light theme by setting data-theme to light */
-:root {
-  color-scheme: light;
-}
-
+/* Force light color scheme */
+:root,
+html,
+html[data-theme='light'],
 html[data-theme='dark'] {
-  /* Override dark theme to use light theme */
   color-scheme: light !important;
 }
 
-/* Force the theme to always be light */
-html {
+/* Override Starlight's dark theme colors to use light theme colors */
+html[data-theme='dark'] {
+  /* Background colors */
+  --sl-color-bg: var(--sl-color-white);
+  --sl-color-bg-nav: var(--sl-color-white);
+  --sl-color-bg-sidebar: var(--sl-color-gray-6);
+  --sl-color-bg-inline-code: var(--sl-color-gray-6);
+
+  /* Text colors */
+  --sl-color-text: var(--sl-color-black);
+  --sl-color-text-accent: var(--sl-color-accent-high);
+
+  /* Gray scale - use light theme values */
+  --sl-color-gray-1: hsl(var(--sl-hue-gray), 15%, 95%);
+  --sl-color-gray-2: hsl(var(--sl-hue-gray), 10%, 88%);
+  --sl-color-gray-3: hsl(var(--sl-hue-gray), 10%, 75%);
+  --sl-color-gray-4: hsl(var(--sl-hue-gray), 8%, 50%);
+  --sl-color-gray-5: hsl(var(--sl-hue-gray), 10%, 30%);
+  --sl-color-gray-6: hsl(var(--sl-hue-gray), 15%, 22%);
+  --sl-color-gray-7: hsl(var(--sl-hue-gray), 15%, 15%);
+
+  /* Ensure white and black are correct */
   --sl-color-white: #fff;
-  --sl-color-gray-1: #eee;
-  --sl-color-gray-2: #c2c2c2;
-  --sl-color-gray-3: #8b8b8b;
-  --sl-color-gray-4: #585858;
-  --sl-color-gray-5: #383838;
-  --sl-color-gray-6: #272727;
   --sl-color-black: #181818;
+}
+
+/* Force light background and text colors on body */
+body {
+  background-color: white !important;
+  color: #181818 !important;
 }
 
 /* Hide theme selector */

@@ -1,0 +1,61 @@
+---
+import Default from '@astrojs/starlight/components/Head.astro';
+---
+
+<!-- Force light theme BEFORE Starlight's ThemeProvider runs -->
+<script is:inline>
+  // Override localStorage BEFORE any other scripts read it
+  (function() {
+    const originalGetItem = localStorage.getItem;
+    const originalSetItem = localStorage.setItem;
+
+    // Force theme to light in localStorage
+    try {
+      originalSetItem.call(localStorage, 'starlight-theme', 'light');
+    } catch (e) {}
+
+    // Override localStorage methods to always return/set 'light'
+    localStorage.getItem = function(key) {
+      if (key === 'starlight-theme') {
+        return 'light';
+      }
+      return originalGetItem.call(this, key);
+    };
+
+    localStorage.setItem = function(key, value) {
+      if (key === 'starlight-theme') {
+        return originalSetItem.call(this, key, 'light');
+      }
+      return originalSetItem.call(this, key, value);
+    };
+
+    // Set data-theme immediately
+    document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
+
+<!-- Include default Head component -->
+<Default {...Astro.props}><slot /></Default>
+
+<!-- Watch for theme changes and force back to light -->
+<script is:inline>
+  (function() {
+    // Watch for theme changes after page load
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          const theme = document.documentElement.getAttribute('data-theme');
+          if (theme !== 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          }
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  })();
+</script>
+

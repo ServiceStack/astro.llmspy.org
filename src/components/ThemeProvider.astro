@@ -1,0 +1,35 @@
+---
+// Override ThemeProvider to force light mode
+---
+
+<script is:inline>
+	// Force light mode only - override Starlight's theme provider
+	window.StarlightThemeProvider = (() => {
+		// Always return 'light' theme
+		const theme = 'light';
+		
+		// Set theme immediately
+		document.documentElement.dataset.theme = 'light';
+		
+		// Store light theme in localStorage
+		try {
+			localStorage.setItem('starlight-theme', 'light');
+		} catch (e) {}
+		
+		return {
+			updatePickers(theme = 'light') {
+				// Update theme selectors to show light theme
+				// (though they should be hidden by CSS)
+				document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+					const select = picker.querySelector('select');
+					if (select) select.value = 'light';
+				});
+			},
+		};
+	})();
+</script>
+
+<template id="theme-icons">
+	<!-- Empty template since we don't need theme icons -->
+</template>
+
