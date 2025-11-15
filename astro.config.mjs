@@ -10,10 +10,11 @@ export default defineConfig({
 		react(),
 		starlight({
 			title: 'llms.py',
+			defaultColorScheme: 'light',
 			logo: {
 				src: './src/assets/logo.svg',
 				alt: 'llms.py logo'
-			}, 
+			},
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/ServiceStack/llms' }
 			],
