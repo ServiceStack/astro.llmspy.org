@@ -10,7 +10,6 @@ export default defineConfig({
 		react(),
 		starlight({
 			title: 'llms.py',
-			defaultColorScheme: 'light',
 			logo: {
 				src: './src/assets/logo.svg',
 				alt: 'llms.py logo'
@@ -20,6 +19,14 @@ export default defineConfig({
 			],
 			customCss: [
 				'./src/styles/custom.css',
+			],
+			head: [
+				{
+					tag: 'script',
+					attrs: {
+						src: '/force-light-mode.js',
+					},
+				},
 			],
 			components: {
 				Header: './src/components/Header.astro',

@@ -1,6 +1,37 @@
 /* Custom styles for llms.py documentation */
 
 /* ============================================
+   Force Light Mode
+   ============================================ */
+
+/* Force light theme by setting data-theme to light */
+:root {
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  /* Override dark theme to use light theme */
+  color-scheme: light !important;
+}
+
+/* Force the theme to always be light */
+html {
+  --sl-color-white: #fff;
+  --sl-color-gray-1: #eee;
+  --sl-color-gray-2: #c2c2c2;
+  --sl-color-gray-3: #8b8b8b;
+  --sl-color-gray-4: #585858;
+  --sl-color-gray-5: #383838;
+  --sl-color-gray-6: #272727;
+  --sl-color-black: #181818;
+}
+
+/* Hide theme selector */
+starlight-theme-select {
+  display: none !important;
+}
+
+/* ============================================
    Page Titles and Headings
    ============================================ */
 
